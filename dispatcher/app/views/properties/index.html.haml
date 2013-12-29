@@ -1,0 +1,22 @@
+!!!
+%html
+  %head
+    %title Dispatcher
+    %meta{'name' => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
+    = #%script{:src => "http://maps.googleapis.com/maps/api/js?sensor=true", :type => "text/javascript"}
+  %body
+    %div{:class => "container dispatcher"}
+      = render :partial => "search"
+      %div{:class => "row-fluid", :id => "current_hour"}
+        %strong.time AM: 
+        .btn-toolbar
+          .btn-group
+            - (0..11).each do |x|
+              %button{:class => "btn btn-time", :id => "hour_#{x}", :data => {:hour => "#{x}"}} #{formatted_hour(x)}
+        %strong.time PM: 
+        .btn-toolbar
+          .btn-group
+            - (12..23).each do |x|
+              %button{:class => "btn btn-time", :id => "hour_#{x}", :data => {:hour => "#{x}"}} #{formatted_hour(x)}
+      %div{:class => "container", :id => "property_list"}
+        = render :partial => "calendar", :locals => {:props => @properties}

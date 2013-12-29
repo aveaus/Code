@@ -1,0 +1,39 @@
+- props ||= @properties
+- norms ||= @normalized_properties
+- hour ||= @hour
+- latlng ||= @latlng
+- more_text = "Other Active"
+- if hour
+  %h4 Active Properties at #{formatted_hour(hour)}:
+- if latlng
+  %h4 Properties at #{latlng}:
+%ul{:class => "nav nav-tabs nav-stacked"}
+  - norms.each do |n|
+    - other_active_properties = props.select {|p| p.name == n.name && p != n}.compact
+    %li
+      %div.prop
+        %span.span3 #{n.name}
+        %span.span2
+          %strong Value:
+          #{n.value}
+        %span.span2
+          %strong Weight:
+          #{n.weight}
+        %span.span2
+          %strong Time:
+          #{formatted_time_range(n.start, n.stop)}
+        - if other_active_properties && other_active_properties.size > 0
+          %a.span2.text-right.more{:href => "#", :data => {:name => "#{n.name}"}} #{more_text} >>
+      - if other_active_properties && other_active_properties.size > 0
+        %ul.nav.nav-list{:class => "more_#{n.name}"}
+          - other_active_properties.each do |o|
+            %li
+              %span.span2.offset3
+                %strong Value:
+                #{o.value}
+              %span.span2
+                %strong Weight:
+                #{o.weight}
+              %span.span2
+                %strong Time:
+                #{formatted_time_range(o.start, o.stop)}

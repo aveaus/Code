@@ -1,0 +1,8 @@
+%div.player
+  %div.add
+    %span Enter a player name to enter the game:
+    %input.name{:name => "name"}
+    %button New Player
+  %div.game
+    %span "Welcome: #{@player.try(:name)}"
+    %button New Game

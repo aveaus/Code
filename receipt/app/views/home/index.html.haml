@@ -1,0 +1,44 @@
+!!!
+%html
+  %head
+    %title Receipts
+    %meta{'name' => 'viewport', :content => 'width=device-width, initial-scale=1.0'}
+  %body
+    %div{:class => "container"}
+      %div{:class => "page-header"}
+        %h3 Purchase Order Form
+      .alert.alert-error
+        %button.close{"data-dismiss" => "alert", :type => "button"} ×
+        %strong Warning!
+        %span
+      %div{:class => "row list"}
+        %div{:class => "span2.5"}
+          %label{:for => "itemQuantity"} Quantity
+          %input.itemQuantity.span1
+        %div{:class => "span2.5"}
+          %label{:for => "itemPrice"} Price
+          .input-prepend.input-append
+            %span.add-on $
+            %input.itemPrice.span1
+        %div{:class => "span1"}
+          %label.checkbox
+            %input.itemExempt{:type => "checkbox"} Exempt
+        %div{:class => "span1"}
+          %label.checkbox
+            %input.itemImport{:type => "checkbox"} Import
+        %div{:class => "span6"}
+          %label{:for => "itemDesc"} Description
+          %input.itemDesc{:class => "span4"}
+        %div{:class => "span1 add"}
+          %button#add{:class => "btn btn-primary"} Add
+      %div{:class => "row basket span6"}
+        %table.table
+          %thead
+            %tr
+              %td Quantity
+              %td Description
+              %td Price
+          %tbody
+      %div{:class => "row span6 form"}
+        %button#clear{:class => "btn btn-warning"} Clear
+        %button#calculate{:class => "btn btn-success"} Calculate

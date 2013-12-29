@@ -1,0 +1,7 @@
+%div.leader 
+  %span Current Leaderboard:
+  %ul
+    - @top_players.each do |player|
+      %li 
+        %span #{player.name}
+        %span.score #{player.score}

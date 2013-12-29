@@ -1,0 +1,122 @@
+// Place all the styles related to the Games controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.container {
+  width: 740px;
+  margin: 40px auto;
+  overflow: hidden;
+
+  div.board, div.player {
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  div.result {
+    font-size: 25px;
+    margin: 5px 20px;
+    color: red;
+  }
+
+  .player {
+    margin-left: 40px;
+    width: 450px;
+
+    input, button {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 25px;
+      border-radius: 4px;
+      text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+      margin: 0px 5px;
+      padding: 4px 10px;
+    }
+
+    span {
+      display: inline-block;
+      font-weight: bolder;
+    }
+
+    button {
+      background-color: #006dcc;
+      border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+      font-weight: bolder;
+      color: white;
+      cursor: pointer;
+    }
+
+    div.add {
+      span {
+        line-height: 15px;
+        margin: 5px 5px 10px;
+      }
+
+      input.name {
+        width: 300px;
+        font-size: 20px;
+      }
+    }
+
+    div.game {
+      display: none;
+
+      span {
+        line-height: 25px;
+        font-size: 25px;
+        margin: 0 10px;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  .board {
+    display: none;
+
+    div {
+      float: left;
+      margin: 0 10px;
+      width: 350px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0px;
+      cursor: pointer;
+    }
+
+    div.grid {
+      ul {
+        height: 300px;
+        width: 100px;
+        float: left;
+
+        li {
+          float: left;
+          height: 100px;
+          width: 100px;
+          text-align: center;
+          font-size: 80px;
+          line-height: 100px;
+
+          &.center, &.left, &.right {
+            border: 1px solid black;
+          }
+          &.top {
+            border-top: 0px;
+          }
+          &.bottom {
+            border-bottom: 0px;
+          }
+          &.left {
+            border-left: 0px;
+          }
+          &.right {
+            border-right: 0px;
+          }
+        }
+        &:first-child {
+          margin-right: 1px;
+        }
+      }
+    }
+  }
+}
